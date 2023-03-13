@@ -7,8 +7,6 @@ const textArea = document.getElementsByName("message");
 
 //----Отримання посилань різними методами, просто, щоб не забувати варіанти------
 
-const SAVED_DATA = 
-
 form.addEventListener('input', storeFormData);
 
 function storeFormData(event) {
