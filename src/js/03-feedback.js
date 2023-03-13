@@ -1,21 +1,27 @@
 
 const form = document.querySelector('.feedback-form');
-const emailInput = document.getElementsByName("email");
+
+const emailInput = document.querySelector('.feedback-form input');
 const button = form.lastElementChild;
 const textArea = document.getElementsByName("message");
-console.dir(emailInput);
-console.log(emailInput.value);
 
+//----Отримання посилань різними методами, просто, щоб не забувати варіанти------
 
+const SAVED_DATA = 
 
-emailInput.addEventListener('input', storeFormData);
+form.addEventListener('input', storeFormData);
 
 function storeFormData(event) {
 
-   // const storedData = {};
-   // storedData.email = emailInput.currentTarget.value;
+   const storedData = {
+      email: emailInput.value,
+      message: textArea[0].value
+   };
+   localStorage.setItem("feedback-form-state", JSON.stringify(storedData));
 
-console.dir(event);
+   const savedData = JSON.parse(localStorage.getItem("feedback-form-state"));
+
+// console.log(savedData.email, savedData.message);
 
 }
 
@@ -25,3 +31,5 @@ function handleSubmit(event) {
       event.preventDefault();
 
 }
+
+
